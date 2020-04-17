@@ -1,0 +1,29 @@
+[package]
+name = "write-logger"
+version = "0.1.0"
+edition = "2018"
+authors = ["Peter Taylor <ptaylor@fluentech.info>"]
+description = ""
+documentation = ""
+repository = ""
+readme = "README.md"
+keywords = ["log", "logging"]
+license = "MIT OR Apache-2.0"
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE.APACHE2",
+    "LICENSE.MIT",
+]
+
+[dependencies]
+log = { version = "0.4.0", default-features = false, features = ["max_level_trace"] }
+cortex-m-rtfm = "0.5.1"
+lazy_static = { version = "1.4.0", features = ["spin_no_std"] }
+clock-trait = { path = "../clock-trait" }
+
+[patch.crates-io]
+time = {path = "../time"}
+standback = {path = "../standback"}
